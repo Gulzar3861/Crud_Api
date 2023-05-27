@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "nodejs Api",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "schemes": ["http"],
+  "paths": {
+    "/sample/get": {
+      "get": {
+        "summary": "get",
+        "tags": ["Student"],
+        "operationId": "get",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "headers": "",
+            "description": {}
+          }
+        }
+      }
+    },
+    "/sample/add": {
+      "post": {
+        "summary": "Add",
+        "tags": ["Student"],
+        "operationId": "add",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "Body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "headers": {},
+            "description": ""
+          }
+        }
+      }
+    },
+    "/sample/update": {
+      "put": {
+        "summary": "update",
+        "tags": ["Student"],
+        "operationId": "update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "Body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EditRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sample/delete": {
+      "delete": {
+        "summary": "delete",
+        "tags": ["Student"],
+        "operationId": "delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddRequest": {
+      "title": "Addrequest",
+      "example": {
+        "firstName": "Shaikh",
+        "lastName": "Gulzar"
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": ["firstName", "lastName"]
+    },
+    "EditRequest": {
+      "title": "Editrequest",
+      "example": {
+        "firstName": "Shaikh",
+        "lastName": "Gulzar",
+        "id": "6429be54404c5b427e7121d9"
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": ["firstName", "lastName"]
+    }
+  }
+}
